@@ -1,33 +1,19 @@
-import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableWithoutFeedback,
-  TouchableHighlight,
-  TouchableOpacity,
-  Image,
-  SafeAreaView,
-  Button,
-  Alert,
-  Platform,
-  StatusBar,
-} from 'react-native';
-/* Density independent pixels width: 150, height: 70
- */
-
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
+import ListingEditScreen from './app/screens/ListingEditScreen';
+import WelcomeScreen from './app/screens/WelcomeScreen';
+import Screen from './app/components/Screen';
+import AccountScreen from './app/screens/AccountScreen';
+import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 export default function App() {
-  const [menu, setMenu] = useState('khana khao leo');
-  return (
-    <SafeAreaView style={[styles.container]}>
-      <View style={{ backgroundColor: 'dodgerblue', width: '50%', height: 70 }}></View>
-    </SafeAreaView>
-  );
+  return <WelcomeScreen />;
 }
+
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+  text: {
+    color: 'red',
     flex: 1,
-    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
