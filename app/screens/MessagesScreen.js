@@ -50,8 +50,9 @@ function MessagesScreen(props) {
           setMessages([
             {
               id: 2,
-              title: 'T2',
-              description: 'D2',
+              title: 'Khan Mohsin',
+              description:
+                "I'm interested in this item. When will you be able to post it?",
               image: require('../assets/khan.png'),
             },
           ]);
