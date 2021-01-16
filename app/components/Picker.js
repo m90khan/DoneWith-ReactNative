@@ -13,7 +13,7 @@ import Text from './Text';
 import defaultStyles from '../config/styles';
 import PickerItem from './PickerItem';
 import Screen from './Screen';
-
+import AppButton from './Button';
 function AppPicker({
   icon,
   items,
@@ -53,7 +53,6 @@ function AppPicker({
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType='slide'>
         <Screen>
-          <Button title='Close' onPress={() => setModalVisible(false)} />
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
@@ -69,6 +68,7 @@ function AppPicker({
               />
             )}
           />
+          <AppButton title='Close' onPress={() => setModalVisible(false)} color='dark' />
         </Screen>
       </Modal>
     </>

@@ -9,7 +9,6 @@ const ImageInputList = ({ imageUris = [], onRemoveImage, onAddImage }) => {
       {/* Wrap scrollview inside the VIEW because of the full height issue as scollview takes full height */}
       <ScrollView
         horizontal
-        style={{ backgroundColor: 'red' }}
         ref={scrollView}
         onContentSizeChange={() => scrollView.current.scrollToEnd()}
       >
