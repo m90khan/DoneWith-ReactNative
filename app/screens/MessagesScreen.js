@@ -7,15 +7,31 @@ import { ListItem, ListItemDeleteAction, ListItemSeparator } from '../components
 const initialMessages = [
   {
     id: 1,
-    title: 'Khan Mohsin',
+    title: 'Sarah M',
     description: 'Hey! Is this item still available?',
-    image: require('../assets/khan.png'),
+    image:
+      'https://res.cloudinary.com/m90khan/image/upload/v1614076033/AirHouse/Users/user-4_qibfn7.png',
   },
   {
     id: 2,
-    title: 'Khan Mohsin',
-    description: "I'm interested in this item. When will you be able to post it?",
-    image: require('../assets/khan.png'),
+    title: 'James K',
+    description: "I'm interested in this item. $50 do it?",
+    image:
+      'https://res.cloudinary.com/m90khan/image/upload/v1614076029/AirHouse/Users/user-1_j3zuy0.png',
+  },
+  {
+    id: 3,
+    title: 'Jessica L',
+    description: "I'm interested in this item. Last price?",
+    image:
+      'https://res.cloudinary.com/m90khan/image/upload/v1614076034/AirHouse/Users/user-5_x2iwws.png',
+  },
+  {
+    id: 4,
+    title: 'Lauren S',
+    description: 'Still available?',
+    image:
+      'https://res.cloudinary.com/m90khan/image/upload/v1614076036/AirHouse/Users/user-3_sjtffv.png',
   },
 ];
 
@@ -61,7 +77,5 @@ function MessagesScreen(props) {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default MessagesScreen;

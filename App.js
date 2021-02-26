@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet, SafeAreaView } from 'react-native';
+import { Text, StyleSheet, SafeAreaView, Alert } from 'react-native';
 import { Button, Image, View, Platform } from 'react-native';
 
 import Screen from './app/components/Screen';
@@ -15,11 +15,15 @@ import AuthNavigator from './app/navigation/AuthNavigator';
 import AppNavigator from './app/navigation/AppNavigator';
 import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 import OfflineNotice from './app/components/OfflineNotice';
+import { TouchableNativeFeedback } from 'react-native-gesture-handler';
+import { useDimensions } from '@react-native-community/hooks';
+import WelcomeScreen from './app/screens/WelcomeScreen';
 
 // export default function App() {
 //  const netInfo =  useNetInfo();
 //   return  netInfo.isInternetReachable ?  <Text>Hello</Text> : ;
 // }
+
 export default function App() {
   return (
     <>
@@ -31,6 +35,19 @@ export default function App() {
   );
 }
 
+// export default function App() {
+//   console.log(useDimensions());
+//   return <WelcomeScreen />;
+// }
+
+const styles = StyleSheet.create({
+  container: {
+    height: '90%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    display: 'flex',
+  },
+});
 // const [imageUris, setImageUris] = useState([]);
 
 // const handleAdd = (uri) => {

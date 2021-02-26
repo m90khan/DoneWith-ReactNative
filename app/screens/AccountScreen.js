@@ -30,9 +30,11 @@ function AccountScreen({ navigation }) {
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title='Khan Mohsin'
+          title='James K'
           subTitle='hello@gmail.com'
-          image={require('../assets/khan.png')}
+          image={
+            'https://res.cloudinary.com/m90khan/image/upload/v1614076029/AirHouse/Users/user-1_j3zuy0.png'
+          }
         />
       </View>
       <View style={styles.container}>
