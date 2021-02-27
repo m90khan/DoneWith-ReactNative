@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
-import useListings from '../api/data';
+import listingsApi from '../api/listings';
 
 import { Form, FormField, FormPicker as Picker, SubmitButton } from '../components/forms';
 import CategoryPickerItem from '../components/CategoryPickerItem';
@@ -26,49 +26,49 @@ const categories = [
     value: 1,
   },
   {
-    backgroundColor: '#fd9644',
+    backgroundColor: '#fc5c65',
     icon: 'car',
     label: 'Cars',
     value: 2,
   },
   {
-    backgroundColor: '#fed330',
+    backgroundColor: '#fc5c65',
     icon: 'camera',
     label: 'Cameras',
     value: 3,
   },
   {
-    backgroundColor: '#26de81',
+    backgroundColor: '#fc5c65',
     icon: 'cards',
     label: 'Games',
     value: 4,
   },
   {
-    backgroundColor: '#2bcbba',
+    backgroundColor: '#fc5c65',
     icon: 'shoe-heel',
     label: 'Clothing',
     value: 5,
   },
   {
-    backgroundColor: '#45aaf2',
+    backgroundColor: '#fc5c65',
     icon: 'basketball',
     label: 'Sports',
     value: 6,
   },
   {
-    backgroundColor: '#4b7bec',
+    backgroundColor: '#fc5c65',
     icon: 'headphones',
     label: 'Movies & Music',
     value: 7,
   },
   {
-    backgroundColor: '#a55eea',
+    backgroundColor: '#fc5c65',
     icon: 'book-open-variant',
     label: 'Books',
     value: 8,
   },
   {
-    backgroundColor: '#778ca3',
+    backgroundColor: '#fc5c65',
     icon: 'application',
     label: 'Other',
     value: 9,
@@ -77,42 +77,31 @@ const categories = [
 
 function ListingEditScreen() {
   const location = useLocation();
-  const { listings, setListings } = useListings();
   const [uploadVisible, setUploadVisible] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const handleSubmit = (listing, { resetForm }) => {
-    if (!listing) {
-      setUploadVisible(false);
-
-      return alert('could not save listing');
-    }
-
+  const handleSubmit = async (listing, { resetForm }) => {
     setProgress(0);
     setUploadVisible(true);
-    const listingPost = {
-      id: Math.floor(Math.random()),
-      title: listing.title,
-      images: [{ url: listing.images[0] }],
-      price: listing.price,
-      categoryId: listing.category.value,
-      userId: 2,
-      location: {
-        latitude: location.latitude,
-        longitude: location.longitude,
-      },
-    };
-    setListings([...listings, listingPost]);
-    alert('Success');
+    const result = await listingsApi.addListing({ ...listing, location }, (progress) =>
+      setProgress(progress)
+    );
+
+    if (!result.ok) {
+      setUploadVisible(false);
+      return alert('Could not save the listing');
+    }
+
     resetForm();
   };
+
   return (
     <Screen style={styles.container}>
-      {/* <UploadScreen
+      <UploadScreen
         onDone={() => setUploadVisible(false)}
         progress={progress}
         visible={uploadVisible}
-      /> */}
+      />
       <Form
         initialValues={{
           title: '',

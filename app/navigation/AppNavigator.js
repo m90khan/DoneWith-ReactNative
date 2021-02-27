@@ -7,9 +7,12 @@ import FeedNavigator from './FeedNavigator';
 import AccountNavigator from './AccountNavigator';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import routes from './routes';
+import useNotifications from '../hooks/useNotifications';
 
 const Tab = createBottomTabNavigator();
 const AppNavigator = () => {
+  useNotifications();
+
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -44,3 +47,16 @@ const AppNavigator = () => {
 };
 
 export default AppNavigator;
+
+/*
+<Tab.Screen
+        name='ListingEdit'
+        component={ListingEditScreen}
+        options={({ navigation , route }) => ({
+          tabBarButton: () => (
+            <NewListingButton onPress={() => navigation.navigate(routes.LISTING_EDIT)} />
+          ),
+        })}
+/>
+
+*/

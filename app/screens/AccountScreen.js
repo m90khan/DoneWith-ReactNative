@@ -5,13 +5,14 @@ import { ListItem, ListItemSeparator } from '../components/lists';
 import colors from '../config/colors';
 import Icon from '../components/Icon';
 import Screen from '../components/Screen';
+import routes from '../navigation/routes';
 
 const menuItems = [
   {
     title: 'My Listings',
     icon: {
       name: 'format-list-bulleted',
-      backgroundColor: colors.primary,
+      backgroundColor: colors.secondary,
     },
     targetScreen: 'Listings',
   },
@@ -21,17 +22,19 @@ const menuItems = [
       name: 'email',
       backgroundColor: colors.secondary,
     },
-    targetScreen: 'Messages',
+    targetScreen: routes.MESSAGES,
   },
 ];
 
 function AccountScreen({ navigation }) {
+  const { user, logOut } = useAuth();
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title='James K'
-          subTitle='hello@gmail.com'
+          title={user.name}
+          subTitle={user.email}
           image={
             'https://res.cloudinary.com/m90khan/image/upload/v1614076029/AirHouse/Users/user-1_j3zuy0.png'
           }
@@ -55,7 +58,8 @@ function AccountScreen({ navigation }) {
       </View>
       <ListItem
         title='Log Out'
-        IconComponent={<Icon name='logout' backgroundColor='#ffe66d' />}
+        IconComponent={<Icon name='logout' backgroundColor={colors.secondary} />}
+        onPress={() => logOut()}
       />
     </Screen>
   );

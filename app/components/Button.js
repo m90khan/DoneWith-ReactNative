@@ -1,15 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import colors from '../config/colors';
 
-function AppButton({ title, onPress, style, color = 'primary' }) {
+function Button({ title, onPress, style, icon, color = 'primary' }) {
   return (
     <TouchableOpacity
-      style={[styles.button, { backgroundColor: colors[color], style }]}
+      style={[styles.button, { backgroundColor: colors[color], display: 'flex', style }]}
       onPress={onPress}
     >
-      <Text style={styles.text}>{title}</Text>
+      <Text style={styles.text}>
+        {icon && (
+          <MaterialCommunityIcons name={icon} size={20} color style={styles.icon} />
+        )}
+        {'  '}
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 }
@@ -31,6 +38,9 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     fontWeight: 'bold',
   },
+  icon: {
+    color: 'white',
+  },
 });
 
-export default AppButton;
+export default Button;

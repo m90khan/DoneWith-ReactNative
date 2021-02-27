@@ -4,6 +4,7 @@ export default Object.freeze({
   LOGIN: 'Login',
   MESSAGES: 'Messages',
   REGISTER: 'Register',
+  LOGOUT: 'Logout',
 });
 
 // object freeze : prevent other modules  to change thee properties
