@@ -14,6 +14,7 @@ import { useEffect } from 'react/cjs/react.development';
 function ListingsScreen({ navigation }) {
   const getListingsApi = useApi(listingsApi.getListings);
 
+  console.log(getListingsApi);
   useEffect(() => {
     getListingsApi.request();
   }, []);

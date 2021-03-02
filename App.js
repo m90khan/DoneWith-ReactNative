@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet, SafeAreaView, Alert } from 'react-native';
 import { Image, View, Platform } from 'react-native';
-import { AppLoading } from 'expo';
+import AppLoading from 'expo-app-loading';
 
 import Screen from './app/components/Screen';
 
@@ -30,9 +30,9 @@ import ListingEditScreen from './app/screens/ListingEditScreen';
 import AuthContext from './app/auth/context';
 import authStorage from './app/auth/storage';
 import { navigationRef } from './app/navigation/rootNavigation';
-import logger from './app/utility/logger';
+// import logger from './app/utility/logger';
 
-logger.start();
+// logger.start();
 
 export default function App() {
   const [user, setUser] = useState();
@@ -43,8 +43,8 @@ export default function App() {
     if (user) setUser(user);
   };
 
-  if (!isReady)
-    return <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} />;
+  // if (!isReady)
+  //   return <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} />;
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>
@@ -66,31 +66,5 @@ export default function App() {
 // };
 
 /*
-- Based on the concept of atomic design
-- Reuseable components
-- Formik and Yup for forms
-- to get user permission for camera access 
-import * as ImagePicker from 'expo-image-picker';
-- get specific user permissions
-import * as Permissions from 'expo-permissions';
-  const result = Permissions.askAsync(Permissions.CAMERA_ROLL, Permissions.LOCATION);
-    console.log(result);
-- react navigation to implement navigation
- stack navigator : to take usr from one screen to the other
- tabs navigator: to implement tabs
- drawer : to implement drawer navigation
-- Nesting navigators: with both stack and tab navigators
-- React native debugger : to  debug 
-- ApiSauce : to get data from backend
-- conditional rendering
-- simulating on slow connection
-- api custom hooks
-- offline support 
-netinfo - to detect network , if isInternetReachable ? 'message': App
-- Implement Caching : cache data but avoid memory leak , SQLite, AsyncStorage , secureStore = 2mb
-asyncstorage : key value storage system 
-- Offline Notice
-- jwtdecode for temporary implementation for getting user
-- useContext to handle user state
-- Push Notification using expo 
+            
 */

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, Image } from 'react-native';
 import * as Yup from 'yup';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -77,7 +77,7 @@ function RegisterScreen() {
         <Text style={{ textAlign: 'center', padding: 20 }}>or </Text>
         <Button
           title='Register with Google'
-          color='primary'
+          color='secondary'
           icon='google'
           onPress={() => console.log('google')}
         />
