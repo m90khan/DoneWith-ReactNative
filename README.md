@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://mifolio-react-app.vercel.app/">
-    <img src="./src/assets/img/clock.svg" alt="Logo" width="120" height="120">
+    <img src="./app/assets/icon.png" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">DoneWith | Marketplace </h3>
